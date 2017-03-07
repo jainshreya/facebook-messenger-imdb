@@ -254,15 +254,15 @@ function receivedMessage(event) {
     // If we receive a text message, check to see if it matches any special
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
-    var request=("request");
+    var request = require("request");
     getImdbData(messageText,function(err, result) {
       sendTextMessage(senderID, result);
     });
     
     function getImdbData(str, callback) {
-      str=str.split(' ').join('%20');
-      var baseUrl="http://www.omdbapi.com/?t=";
-      request(baseUrl+str, function(err,res,body) {
+      str = str.split(' ').join('%20');
+      var baseUrl = "http://www.omdbapi.com/?t=";
+      request(baseUrl + str, function(err, res, body) {
         callback(null, body);
       });
     }
