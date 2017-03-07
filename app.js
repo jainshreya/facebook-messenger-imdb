@@ -258,7 +258,7 @@ function receivedMessage(event) {
     getImdbData(messageText,function(err, result) {
       var keys = Object.keys(result);
       for(var i=0; i<keys.length; i++) {
-        sendTextMessage(senderID, result[keys[i]);
+        sendTextMessage(senderID, result[keys[i]]);
       }
     });
     
