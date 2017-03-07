@@ -266,7 +266,7 @@ function receivedMessage(event) {
       str = str.split(' ').join('%20');
       var baseUrl = "http://www.omdbapi.com/?t=";
       request(baseUrl + str, function(err, res, body) {
-        callback(null, body);
+        callback(null, JSON.parse(body));
       });
     }
   } else if (messageAttachments) {
