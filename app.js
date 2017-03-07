@@ -256,7 +256,10 @@ function receivedMessage(event) {
     // the text we received.
     var request = require("request");
     getImdbData(messageText,function(err, result) {
-      sendTextMessage(senderID, result);
+      var keys = Object.keys(result);
+      for(var i=0; i<keys.length; i++) {
+        sendTextMessage(senderID, result[keys[i]);
+      }
     });
     
     function getImdbData(str, callback) {
